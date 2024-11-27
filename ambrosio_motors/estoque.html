@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motos - Ambrosio Motors</title>
+    <style>
+        /* Fonte personalizada */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap');
+
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Corpo */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #1b1b1b;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho */
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            text-align: center;
+        }
+
+        header .logo {
+            max-width: 200px;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #00bfff;
+        }
+
+        /* Barra de pesquisa */
+        .search-bar {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .search-bar input {
+            padding: 15px;
+            font-size: 1.1em;
+            width: 300px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            outline: none;
+            background-color: #333;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            border-color: #00bfff;
+            background-color: #444;
+            box-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
+        }
+
+        /* Filtros */
+        .filters {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .filters select {
+            padding: 15px;
+            font-size: 1.1em;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            outline: none;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filters select:hover {
+            background-color: #444;
+        }
+
+        .filters select:focus {
+            border-color: #00bfff;
+            box-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
+        }
+
+        /* Seção principal */
+        .motos-section {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .motos-section h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #00bfff;
+        }
+
+        .motos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .moto-card {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .moto-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .moto-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .moto-card p {
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+
+        .moto-card button {
+            background: #00bfff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .moto-card button:hover {
+            background: #007acc;
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            font-size: 0.9em;
+        }
+
+        /* Estilos do Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: #333;
+            padding: 30px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 1000px;
+            color: #fff;
+            text-align: center;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .moto-images img {
+            width: 100%;
+            margin-top: 15px;
+            border-radius: 10px;
+            display: inline-block;
+            margin: 0 5px;
+            max-width: 200px;
+        }
+
+        .moto-description {
+            margin: 20px 0;
+            font-size: 1.2em;
+        }
+
+        .modal-close {
+            background: #00bfff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .modal-close:hover {
+            background: #007acc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Logo PNG.png" alt="Logo Ambrosio Motors" class="logo">
+        <nav>
+            <a href="inicio.html">Início</a>
+            <a href="motos.html">Motos</a>
+            <a href="estoque.html">Estoque</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Barra de pesquisa -->
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Pesquise sua moto...">
+        </div>
+
+        <section class="motos-section">
+            <h1>Nossos Modelos Premium</h1>
+
+            <!-- Container de motos -->
+            <div class="motos-container" id="moto-list">
+                <div class="moto-card" data-ano="2021" data-preco="20000" data-combustivel="Gasolina" data-quilometragem="5000">
+                    <img src="FAN 2021.jpeg" alt="Honda Fan 160 2021">
+                    <h3>Honda Fan 160 2021</h3>
+                    <p>Praticidade e economia para o dia a dia. Ideal para quem busca conforto e eficiência nas ruas.</p>
+                    <button onclick="showMotoDetails(1)">Saiba Mais</button>
+                </div>
+
+                <div class="moto-card" data-ano="2023" data-preco="30000" data-combustivel="Gasolina" data-quilometragem="1200">
+                    <img src="PCX 2023.jpeg" alt="Honda PCX DLX ABS 2023">
+                    <h3>Honda PCX DLX ABS 2023</h3>
+                    <p>Design moderno e sofisticação. Uma scooter para quem busca estilo e desempenho.</p>
+                    <button onclick="showMotoDetails(2)">Saiba Mais</button>
+                </div>
+
+                <div class="moto-card" data-ano="2020" data-preco="23000" data-combustivel="Gasolina" data-quilometragem="8000">
+                    <img src="NMAX 2020.jpeg" alt="Yamaha NMAX 160 ABS 2020">
+                    <h3>Yamaha NMAX 160 ABS 2020</h3>
+                    <p>Conforto e performance para todos os tipos de estrada. O NMAX é sinônimo de conforto e estilo.</p>
+                    <button onclick="showMotoDetails(3)">Saiba Mais</button>
+                </div>
+
+                <div class="moto-card" data-ano="2014" data-preco="18000" data-combustivel="Gasolina" data-quilometragem="25000">
+                    <img src="CB500 2014.jpeg" alt="Honda CB500F 2014">
+                    <h3>Honda CB500F 2014</h3>
+                    <p>Robustez e potência com design esportivo. Ideal para aventuras urbanas e estradas.</p>
+                    <button onclick="showMotoDetails(4)">Saiba Mais</button>
+                </div>
+
+                <div class="moto-card" data-ano="2015" data-preco="15000" data-combustivel="Gasolina" data-quilometragem="15000">
+                    <img src="CB300 2015.jpeg" alt="Honda CB300R Capitão América 2015">
+                    <h3>Honda CB300R Capitão América 2015</h3>
+                    <p>Estilo único e personalidade marcante. Inspirada no Capitão América, para quem quer se destacar.</p>
+                    <button onclick="showMotoDetails(5)">Saiba Mais</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div id="moto-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span id="moto-modal-title"></span>
+            </div>
+            <div class="moto-description" id="moto-modal-description"></div>
+            <div id="moto-modal-details"></div>
+            <div class="moto-images" id="moto-modal-images"></div>
+            <button class="modal-close" onclick="closeModal()">Fechar</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Ambrosio Motors - Exclusividade em Duas Rodas</p>
+    </footer>
+
+    <script>
+        // Funções do Modal
+        function showMotoDetails(motoId) {
+            const motoDetails = [
+                {
+                    title: 'Honda Fan 160 2021',
+                    description: 'Praticidade e economia para o dia a dia. Ideal para quem busca conforto e eficiência nas ruas.',
+                    year: '2021',
+                    fuel: 'Flex',
+                    mileage: '46700 km',
+                    price: 'R$ 15.500',
+                    images: ['FAN 2021.jpeg', 'FAN 2021 3.jpeg', 'FAN 2021 4.jpeg', 'FAN 2021 2.jpeg'],
+                },
+                {
+                    title: 'Honda PCX DLX ABS 2023',
+                    description: 'Design moderno e sofisticação. Uma scooter para quem busca estilo e desempenho.',
+                    year: '2023',
+                    fuel: 'Gasolina',
+                    mileage: '16300 km',
+                    price: 'R$ 19.500',
+                    images: ['PCX 2023.jpeg', 'PCX 2023 2.jpeg', 'PCX 2023 3.jpeg', 'PCX 2023 4.jpeg'],
+                },
+                {
+                    title: 'Yamaha NMAX 160 ABS 2020',
+                    description: 'Conforto e performance para todos os tipos de estrada. O NMAX é sinônimo de conforto e estilo.',
+                    year: '2020',
+                    fuel: 'Gasolina',
+                    mileage: '13000 km',
+                    price: 'R$ 15.500',
+                    images: ['NMAX 2020.jpeg', 'NMAX 2020 2.jpeg', 'NMAX 2020 3.jpeg', 'NMAX 2020 4.jpeg'],
+                },
+                {
+                    title: 'Honda CB500F 2014',
+                    description: 'Robustez e potência com design esportivo. Ideal para aventuras urbanas e estradas.',
+                    year: '2014',
+                    fuel: 'Gasolina',
+                    mileage: '50630 km',
+                    price: 'R$ 22.900',
+                    images: ['CB500 2014.jpeg', 'CB500F 2014 2.jpeg', 'CB500F 2014 3.jpeg', 'CB500F 2014 4.jpeg'],
+                },
+                {
+                    title: 'Honda CB300R Capitão América 2015',
+                    description: 'Estilo único e personalidade marcante. Inspirada no Capitão América, para quem quer se destacar.',
+                    year: '2015',
+                    fuel: 'Flex',
+                    mileage: '62800 km',
+                    price: 'R$ 14.900',
+                    images: ['CB300 2015.jpeg', 'CB300 2015 2.jpeg', 'CB300 2015 3.jpeg', 'CB300 2015 4.jpeg'],
+                }
+            ];
+
+            const modal = document.getElementById('moto-modal');
+            const title = document.getElementById('moto-modal-title');
+            const description = document.getElementById('moto-modal-description');
+            const imagesContainer = document.getElementById('moto-modal-images');
+            const detailsContainer = document.getElementById('moto-modal-details');
+
+            const moto = motoDetails[motoId - 1];
+            title.textContent = moto.title;
+            description.textContent = moto.description;
+            detailsContainer.innerHTML = `
+                <p><strong>Ano:</strong> ${moto.year}</p>
+                <p><strong>Combustível:</strong> ${moto.fuel}</p>
+                <p><strong>Quilometragem:</strong> ${moto.mileage}</p>
+                <p><strong>Preço:</strong> ${moto.price}</p>
+            `;
+            imagesContainer.innerHTML = moto.images.map(img => `<img src="${img}" alt="${moto.title}">`).join('');
+
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('moto-modal');
+            modal.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

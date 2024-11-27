@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambrosio Motors - Início</title>
+    <style>
+        /* Fonte personalizada */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap');
+
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Corpo */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #1b1b1b;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho */
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            text-align: center;
+        }
+
+        header .logo {
+            max-width: 200px;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #00bfff;
+        }
+
+        /* Seção de Introdução */
+        .intro-section {
+            padding: 80px 20px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.8);
+            margin-bottom: 50px;
+        }
+
+        .intro-section h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #00bfff;
+        }
+
+        .intro-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .intro-section button {
+            background: #00bfff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .intro-section button:hover {
+            background: #007acc;
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Logo PNG.png" alt="Logo Ambrosio Motors" class="logo">
+        <nav>
+            <a href="inicio.html">Início</a>
+            <a href="motos.html">Motos</a>
+            <a href="estoque.html">Estoque</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Seção de Introdução -->
+        <section class="intro-section">
+            <h1>Bem-vindo à Ambrosio Motors</h1>
+            <p>Explore nossa seleção exclusiva de motocicletas premium. Modelos inovadores e de alto desempenho para atender aos seus desejos sobre duas rodas.</p>
+            <button>Saiba Mais</button>
+        </section>
+
+        <!-- Seção de Modelos em Destaque -->
+        <section class="motos-section" style="padding: 50px; text-align: center;">
+            <h1>Nossos Modelos Premium</h1>
+            <div class="motos-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px;">
+                <div class="moto-card" style="background: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);">
+                    <img src="FAN 2021.jpeg" alt="Honda Fan 160 2021" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
+                    <h3 style="font-size: 1.5em; margin-bottom: 10px;">Honda Fan 160 2021</h3>
+                    <p style="font-size: 1em; margin-bottom: 15px;">Praticidade e economia para o dia a dia. Ideal para quem busca conforto e eficiência nas ruas.</p>
+                    <button style="background: #00bfff; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 1em; cursor: pointer; transition: background 0.3s ease;">Saiba Mais</button>
+                </div>
+                <div class="moto-card" style="background: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);">
+                    <img src="PCX 2023.jpeg" alt="Honda PCX DLX ABS 2023" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
+                    <h3 style="font-size: 1.5em; margin-bottom: 10px;">Honda PCX DLX ABS 2023</h3>
+                    <p style="font-size: 1em; margin-bottom: 15px;">Design moderno e tecnologia avançada. Uma scooter perfeita para mobilidade urbana de alta classe.</p>
+                    <button style="background: #00bfff; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 1em; cursor: pointer; transition: background 0.3s ease;">Saiba Mais</button>
+                </div>
+                <div class="moto-card" style="background: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);">
+                    <img src="NMAX 2020.jpeg" alt="Yamaha NMAX 160 ABS 2020" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
+                    <h3 style="font-size: 1.5em; margin-bottom: 10px;">Yamaha NMAX 160 ABS 2020</h3>
+                    <p style="font-size: 1em; margin-bottom: 15px;">Desempenho e segurança, com sistema ABS. A Yamaha NMAX é sinônimo de conforto e estilo.</p>
+                    <button style="background: #00bfff; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 1em; cursor: pointer; transition: background 0.3s ease;">Saiba Mais</button>
+                </div>
+                <div class="moto-card" style="background: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);">
+                    <img src="CB500 2014.jpeg" alt="Honda CB500F 2014" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
+                    <h3 style="font-size: 1.5em; margin-bottom: 10px;">Honda CB500F 2014</h3>
+                    <p style="font-size: 1em; margin-bottom: 15px;">Robustez e potência com design esportivo. Ideal para aventuras urbanas e estradas.</p>
+                    <button style="background: #00bfff; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 1em; cursor: pointer; transition: background 0.3s ease;">Saiba Mais</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Ambrosio Motors - Exclusividade em Duas Rodas</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Interesse - Ambrosio Motors</title>
+    <style>
+        /* Fonte personalizada */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap');
+
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Corpo */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #1b1b1b url('background-motos.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho */
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            text-align: center;
+        }
+
+        header .logo {
+            max-width: 200px;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #00bfff;
+        }
+
+        /* Formulário */
+        .form-section {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 40px;
+            border-radius: 10px;
+            margin: 50px auto;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-section h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #00bfff;
+        }
+
+        .form-section p {
+            margin-bottom: 30px;
+        }
+
+        form label {
+            display: block;
+            margin: 10px 0 5px;
+            text-align: left;
+        }
+
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        form input:invalid, form select:invalid, form textarea:invalid {
+            border-color: red;
+        }
+
+        form button {
+            background: #00bfff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        form button:hover {
+            background: #007acc;
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            font-size: 0.9em;
+        }
+
+        /* Mensagem de Erro */
+        .error {
+            color: red;
+            font-size: 0.9em;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Logo PNG.png" alt="Logo Ambrosio Motors" class="logo">
+        <nav>
+            <a href="inicio.html">Início</a>
+            <a href="motos.html">Motos</a>
+            <a href="estoque.html">Estoque</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <h1>Cadastre Seu Interesse</h1>
+            <p>Preencha o formulário abaixo e nossa equipe entrará em contato com você para personalizar sua experiência com nossas motocicletas premium.</p>
+            
+            <form id="form-cadastro" action="contato.php" method="POST" novalidate>
+                <!-- Nome Completo -->
+                <label for="nome">Nome Completo:</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+                <div id="erro-nome" class="error"></div>
+                
+                <!-- E-mail -->
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" placeholder="Seu melhor e-mail" required>
+                <div id="erro-email" class="error"></div>
+                
+                <!-- Telefone -->
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" required>
+                <div id="erro-telefone" class="error"></div>
+                
+                <!-- Modelo de Interesse -->
+                <label for="modelo">Modelo de Interesse:</label>
+                <select id="modelo" name="modelo" required>
+                    <option value="">Selecione uma Moto de Interesse</option>
+                        <option value="Honda Fan 160">Honda Fan 160 2021</option>
+                        <option value="Honda PCX DLX ABS">Honda PCX DLX ABS 2023</option>
+                        <option value="Yamaha NMAX 160 ABS">Yamaha NMAX 160 ABS 2020</option>
+                        <option value="Honda CB500F">Honda CB500F 2014</option>
+                        <option value="Honda CB300R Capitão América">Honda CB300R Capitão América 2015</option>
+                </select>
+                <div id="erro-modelo" class="error"></div>
+                
+                <!-- Mensagem -->
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" rows="5" placeholder="Descreva seu interesse ou dúvidas"></textarea>
+                
+                <!-- Botão de Enviar -->
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Ambrosio Motors - Exclusividade em Duas Rodas</p>
+    </footer>
+
+    <script>
+        // Função para validar o formulário
+        const form = document.getElementById('form-cadastro');
+
+        form.addEventListener('submit', function (event) {
+            let isValid = true;
+
+            // Nome
+            const nome = document.getElementById('nome');
+            const erroNome = document.getElementById('erro-nome');
+            if (nome.value.trim() === '') {
+                isValid = false;
+                erroNome.textContent = 'O nome é obrigatório.';
+            } else {
+                erroNome.textContent = '';
+            }
+
+            // E-mail
+            const email = document.getElementById('email');
+            const erroEmail = document.getElementById('erro-email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value)) {
+                isValid = false;
+                erroEmail.textContent = 'Informe um e-mail válido.';
+            } else {
+                erroEmail.textContent = '';
+            }
+
+            // Telefone
+            const telefone = document.getElementById('telefone');
+            const erroTelefone = document.getElementById('erro-telefone');
+            const telefoneRegex = /^\(\d{2}\) \d{4,5}-\d{4}$/;
+            if (!telefoneRegex.test(telefone.value)) {
+                isValid = false;
+                erroTelefone.textContent = 'Formato de telefone inválido. Ex: (11) 91234-5678.';
+            } else {
+                erroTelefone.textContent = '';
+            }
+
+            // Modelo de Interesse
+            const modelo = document.getElementById('modelo');
+            const erroModelo = document.getElementById('erro-modelo');
+            if (modelo.value === '') {
+                isValid = false;
+                erroModelo.textContent = 'Selecione um modelo.';
+            } else {
+                erroModelo.textContent = '';
+            }
+
+            // Bloqueia o envio do formulário se houver erros
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,167 +1,228 @@
 <!DOCTYPE html>
+<!-- Define o tipo de documento como HTML5 -->
 <html lang="pt-br">
+<!-- Início da tag HTML, especificando o idioma como português do Brasil -->
 <head>
     <meta charset="UTF-8">
+    <!-- Define a codificação de caracteres como UTF-8 para suportar caracteres especiais -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Configura a viewport para garantir que o site seja responsivo em dispositivos móveis -->
     <title>Motos - Ambrosio Motors</title>
+    <!-- Define o título da página, que aparece na aba do navegador -->
+
     <style>
-        /* Fonte personalizada */
+        /* Importa uma fonte personalizada do Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap');
 
-        /* Reset básico */
+        /* Reset básico para todos os elementos */
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            margin: 0; /* Remove a margem padrão */
+            padding: 0; /* Remove o preenchimento padrão */
+            box-sizing: border-box; /* Inclui as bordas e o preenchimento no cálculo do tamanho dos elementos */
         }
 
-        /* Corpo */
+        /* Estilo para o corpo da página */
         body {
-            font-family: 'Roboto', sans-serif;
-            background: #1b1b1b;
-            color: #fff;
-            line-height: 1.6;
+            font-family: 'Roboto', sans-serif; /* Define a fonte padrão como Roboto */
+            background: #1b1b1b; /* Cor de fundo escura */
+            color: #fff; /* Cor do texto branca */
+            line-height: 1.6; /* Altura da linha para facilitar a leitura */
         }
 
-        /* Cabeçalho */
+        /* Estilo para o cabeçalho */
         header {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            text-align: center;
+            background: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente */
+            padding: 20px; /* Preenchimento interno */
+            text-align: center; /* Alinha o conteúdo ao centro */
         }
 
+        /* Estilo para a imagem do logo */
         header .logo {
-            max-width: 200px;
+            max-width: 200px; /* Define a largura máxima do logo */
         }
 
+        /* Estilo para a barra de navegação */
         nav {
-            margin-top: 10px;
+            margin-top: 10px; /* Margem superior */
         }
 
+        /* Estilo para os links de navegação */
         nav a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2em;
-            margin: 0 15px;
-            transition: color 0.3s ease;
+            color: #fff; /* Cor do texto do link */
+            text-decoration: none; /* Remove o sublinhado do link */
+            font-size: 1.2em; /* Tamanho da fonte */
+            margin: 0 15px; /* Margem lateral */
+            transition: color 0.3s ease; /* Transição suave para a cor do link */
         }
 
+        /* Estilo de hover para os links de navegação */
         nav a:hover {
-            color: #00bfff;
+            color: #00bfff; /* Cor do texto ao passar o mouse */
         }
 
-        /* Seção principal */
+        /* Estilo da barra de pesquisa */
+        .search-bar {
+            margin-bottom: 30px; /* Margem inferior */
+            display: flex; /* Exibe a barra de pesquisa como um flex container */
+            justify-content: center; /* Alinha o conteúdo horizontalmente ao centro */
+            gap: 20px; /* Espaçamento entre os elementos */
+        }
+
+        /* Estilo do campo de input da barra de pesquisa */
+        .search-bar input {
+            padding: 15px; /* Preenchimento interno */
+            font-size: 1.1em; /* Tamanho da fonte */
+            width: 300px; /* Largura do campo de input */
+            border-radius: 8px; /* Bordas arredondadas */
+            border: 1px solid #ccc; /* Borda cinza clara */
+            outline: none; /* Remove a borda de foco padrão */
+            background-color: #333; /* Cor de fundo do campo de input */
+            color: #fff; /* Cor do texto do input */
+            transition: all 0.3s ease; /* Transição suave para todas as propriedades */
+        }
+
+        /* Estilo do campo de input quando em foco */
+        .search-bar input:focus {
+            border-color: #00bfff; /* Borda azul clara */
+            background-color: #444; /* Fundo um pouco mais claro */
+            box-shadow: 0 0 10px rgba(0, 191, 255, 0.6); /* Sombra azul clara */
+        }
+
+        /* Estilo da seção principal */
         .motos-section {
-            padding: 50px;
-            text-align: center;
+            padding: 50px; /* Preenchimento interno */
+            text-align: center; /* Alinha o texto ao centro */
         }
 
+        /* Estilo do título da seção */
         .motos-section h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #00bfff;
+            font-family: 'Playfair Display', serif; /* Fonte serifada */
+            font-size: 2.5em; /* Tamanho da fonte */
+            margin-bottom: 20px; /* Margem inferior */
+            color: #00bfff; /* Cor azul clara */
         }
 
-        .motos-section .motos-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
+        /* Estilo do container de motos */
+        .motos-container {
+            display: grid; /* Exibe os itens como uma grade */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Define as colunas de forma responsiva */
+            gap: 30px; /* Espaçamento entre os cartões */
+            margin-top: 30px; /* Margem superior */
         }
 
+        /* Estilo do cartão de cada moto */
         .moto-card {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente */
+            padding: 20px; /* Preenchimento interno */
+            border-radius: 10px; /* Bordas arredondadas */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Sombra do cartão */
         }
 
+        /* Estilo da imagem do cartão */
         .moto-card img {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 15px;
+            width: 100%; /* Largura completa do cartão */
+            border-radius: 10px; /* Bordas arredondadas */
+            margin-bottom: 15px; /* Margem inferior */
         }
 
+        /* Estilo do título dentro do cartão */
         .moto-card h3 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
+            font-size: 1.5em; /* Tamanho da fonte */
+            margin-bottom: 10px; /* Margem inferior */
         }
 
+        /* Estilo do parágrafo dentro do cartão */
         .moto-card p {
-            font-size: 1em;
-            margin-bottom: 15px;
+            font-size: 1em; /* Tamanho da fonte */
+            margin-bottom: 15px; /* Margem inferior */
         }
 
+        /* Estilo do botão dentro do cartão */
         .moto-card button {
-            background: #00bfff;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background 0.3s ease;
+            background: #00bfff; /* Cor de fundo azul clara */
+            color: #fff; /* Cor do texto do botão */
+            padding: 10px 20px; /* Preenchimento interno */
+            border: none; /* Remove a borda padrão */
+            border-radius: 5px; /* Bordas arredondadas */
+            font-size: 1em; /* Tamanho da fonte */
+            cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+            transition: background 0.3s ease; /* Transição suave de fundo */
         }
 
+        /* Estilo de hover para o botão */
         .moto-card button:hover {
-            background: #007acc;
+            background: #007acc; /* Cor do fundo do botão ao passar o mouse */
         }
 
-        /* Rodapé */
+        /* Estilo do rodapé */
         footer {
-            text-align: center;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            font-size: 0.9em;
+            text-align: center; /* Alinha o texto ao centro */
+            padding: 20px; /* Preenchimento interno */
+            background: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente */
+            font-size: 0.9em; /* Tamanho da fonte menor */
         }
     </style>
 </head>
 <body>
     <header>
         <img src="Logo PNG.png" alt="Logo Ambrosio Motors" class="logo">
+        <!-- Imagem do logo da empresa com texto alternativo para acessibilidade e uma classe para estilização -->
         <nav>
             <a href="inicio.html">Início</a>
+            <a href="sobre_nós.html">Sobre Nós</a>
             <a href="motos.html">Motos</a>
-            <a href="estoque.html">Estoque</a>
+            <a href="localizacao.html">Localização</a>
             <a href="contato.html">Contato</a>
-            <a href="Localizção.html">Localização</a>
         </nav>
+        <!-- Barra de navegação com links para diferentes páginas do site -->
     </header>
 
     <main>
+        <!-- Barra de pesquisa -->
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Pesquise sua moto...">
+            <!-- Campo de input para pesquisa com um ID para identificação e um texto de placeholder -->
+        </div>
+
         <section class="motos-section">
             <h1>Nossos Modelos Premium</h1>
-            <div class="motos-container">
+            <!-- Título da seção -->
+
+            <!-- Container para os cartões de motos -->
+            <div class="motos-container" id="moto-list">
+                <!-- Cartão da primeira moto -->
                 <div class="moto-card">
                     <img src="FAN 2021.jpeg" alt="Honda Fan 160 2021">
                     <h3>Honda Fan 160 2021</h3>
-                    <p>Praticidade e economia para o dia a dia. Ideal para quem busca conforto e eficiência nas ruas.</p>
-                    <button>Saiba Mais</button>
+                    <p><strong>Km:</strong> 46.700 <br><p><strong>Valor:</strong> R$ 15.500,00</p>
                 </div>
+
+                <!-- Cartão da segunda moto -->
                 <div class="moto-card">
                     <img src="PCX 2023.jpeg" alt="Honda PCX DLX ABS 2023">
                     <h3>Honda PCX DLX ABS 2023</h3>
-                    <p>Design moderno e tecnologia avançada. Uma scooter perfeita para mobilidade urbana de alta classe.</p>
-                    <button>Saiba Mais</button>
+                    <p><strong>Km:</strong> 16.300 <br><p><strong>Valor:</strong> R$ 19.500,00</p>
                 </div>
+
+                <!-- Cartão da terceira moto -->
                 <div class="moto-card">
                     <img src="NMAX 2020.jpeg" alt="Yamaha NMAX 160 ABS 2020">
                     <h3>Yamaha NMAX 160 ABS 2020</h3>
-                    <p>Desempenho e segurança, com sistema ABS. A Yamaha NMAX é sinônimo de conforto e estilo.</p>
-                    <button>Saiba Mais</button>
+                    <p><strong>Km:</strong> 13.000 <br><p><strong>Valor:</strong> R$ 15.500,00</p>
                 </div>
+
+                <!-- Cartão da quarta moto -->
                 <div class="moto-card">
                     <img src="CB500 2014.jpeg" alt="Honda CB500F 2014">
                     <h3>Honda CB500F 2014</h3>
-                    <p>Robustez e potência com design esportivo. Ideal para aventuras urbanas e estradas.</p>
-                    <button>Saiba Mais</button>
+                    <p><strong>Km:</strong> 50.630 <br><p><strong>Valor:</strong> R$ 22.900,00</p>
                 </div>
+
+                <!-- Cartão da quinta moto -->
                 <div class="moto-card">
                     <img src="CB300 2015.jpeg" alt="Honda CB300R Capitão América 2015">
                     <h3>Honda CB300R Capitão América 2015</h3>
-                    <p>Estilo único e personalidade marcante. Inspirada no Capitão América, para quem quer se destacar.</p>
-                    <button>Saiba Mais</button>
+                    <p><strong>Km:</strong> 62.800 <br><p><strong>Valor:</strong> R$ 14.900,00</p>
                 </div>
             </div>
         </section>
@@ -169,6 +230,27 @@
 
     <footer>
         <p>&copy; 2024 Ambrosio Motors - Exclusividade em Duas Rodas</p>
+        <!-- Texto de rodapé com símbolo de copyright e uma mensagem -->
     </footer>
+
+    <script>
+        // Função de pesquisa dinâmica
+        document.getElementById('search').addEventListener('input', function (event) {
+            const query = event.target.value.toLowerCase(); // Captura o valor do campo de pesquisa em minúsculas
+            const motoCards = document.querySelectorAll('.moto-card'); // Seleciona todos os cartões de moto
+
+            motoCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase(); // Obtém o título do cartão em minúsculas
+                const description = card.querySelector('p').textContent.toLowerCase(); // Obtém a descrição do cartão em minúsculas
+                if (title.includes(query) || description.includes(query)) {
+                    card.style.display = 'block'; // Exibe o cartão se a pesquisa coincidir com o título ou a descrição
+                } else {
+                    card.style.display = 'none'; // Oculta o cartão se não houver coincidência
+                }
+            });
+        });
+        <!-- Adiciona um ouvinte de evento ao campo de pesquisa para filtrar os cartões de motos conforme o usuário digita -->
+    </script>
 </body>
 </html>
+

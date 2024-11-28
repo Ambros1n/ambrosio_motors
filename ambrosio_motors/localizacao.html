@@ -1,144 +1,160 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+<!-- Define o tipo de documento como HTML5 e especifica o idioma como português do Brasil -->
 <head>
     <meta charset="UTF-8">
+    <!-- Define a codificação de caracteres como UTF-8 para suportar caracteres especiais -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Configura a viewport para tornar o site responsivo em dispositivos móveis -->
     <title>Localização - Ambrosio Motors</title>
+    <!-- Define o título da página, que aparece na aba do navegador -->
+
     <style>
-        /* Fonte personalizada */
+        /* Importa uma fonte personalizada do Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap');
 
-        /* Reset básico */
+        /* Reset de estilos básicos para todos os elementos */
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            margin: 0; /* Remove a margem padrão */
+            padding: 0; /* Remove o preenchimento padrão */
+            box-sizing: border-box; /* Inclui as bordas e o preenchimento no cálculo da largura e altura */
         }
 
-        /* Corpo */
+        /* Estilização do corpo da página */
         body {
-            font-family: 'Roboto', sans-serif;
-            background: #1b1b1b;
-            color: #fff;
-            line-height: 1.6;
+            font-family: 'Roboto', sans-serif; /* Define a fonte padrão como Roboto */
+            background: #1b1b1b; /* Cor de fundo escura */
+            color: #fff; /* Cor do texto branca */
+            line-height: 1.6; /* Altura da linha para melhor legibilidade */
         }
 
-        /* Cabeçalho */
+        /* Estilização do cabeçalho */
         header {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            text-align: center;
+            background: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente */
+            padding: 20px; /* Preenchimento interno */
+            text-align: center; /* Alinha o conteúdo no centro */
         }
 
+        /* Logo do cabeçalho */
         header .logo {
-            max-width: 200px;
+            max-width: 200px; /* Define a largura máxima da imagem do logo */
         }
 
+        /* Estilização da barra de navegação */
         nav {
-            margin-top: 10px;
+            margin-top: 10px; /* Margem superior */
         }
 
         nav a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2em;
-            margin: 0 15px;
-            transition: color 0.3s ease;
+            color: #fff; /* Cor do texto do link */
+            text-decoration: none; /* Remove o sublinhado do link */
+            font-size: 1.2em; /* Tamanho da fonte */
+            margin: 0 15px; /* Margem lateral entre os links */
+            transition: color 0.3s ease; /* Transição suave para mudança de cor */
         }
 
         nav a:hover {
-            color: #00bfff;
+            color: #00bfff; /* Cor do link ao passar o mouse */
         }
 
-        /* Conteúdo principal */
+        /* Estilização da seção principal de localização */
         .localizacao-section {
-            padding: 50px;
-            text-align: center;
+            padding: 50px; /* Preenchimento interno */
+            text-align: center; /* Alinha o texto no centro */
         }
 
         .localizacao-section h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #00bfff;
+            font-family: 'Playfair Display', serif; /* Fonte serifada para o título */
+            font-size: 2.5em; /* Tamanho da fonte do título */
+            margin-bottom: 20px; /* Margem inferior */
+            color: #00bfff; /* Cor azul clara para o título */
         }
 
+        /* Container que contém o mapa e as informações de contato */
         .localizacao-container {
-            margin-top: 30px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
+            margin-top: 30px; /* Margem superior */
+            display: flex; /* Exibe os elementos em linha (flex container) */
+            flex-direction: column; /* Organiza os elementos em coluna */
+            align-items: center; /* Centraliza os elementos */
+            gap: 30px; /* Espaçamento entre os elementos */
         }
 
+        /* Container do mapa */
         .map-container {
-            border: 5px solid #00bfff;
-            border-radius: 10px;
-            overflow: hidden;
-            width: 90%;
-            max-width: 800px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            border: 5px solid #00bfff; /* Borda azul clara */
+            border-radius: 10px; /* Bordas arredondadas */
+            overflow: hidden; /* Oculta qualquer conteúdo que ultrapasse os limites do container */
+            width: 90%; /* Largura do container do mapa */
+            max-width: 800px; /* Largura máxima */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Sombra para um efeito de profundidade */
         }
 
+        /* Estilização do iframe do mapa */
         .map-container iframe {
-            width: 100%;
-            height: 450px;
-            border: none;
+            width: 100%; /* Largura completa do container */
+            height: 450px; /* Altura do mapa */
+            border: none; /* Remove a borda padrão do iframe */
         }
 
+        /* Container de endereço */
         .address {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-            max-width: 800px;
-            text-align: left;
+            background: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente */
+            padding: 20px; /* Preenchimento interno */
+            border-radius: 10px; /* Bordas arredondadas */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Sombra */
+            max-width: 800px; /* Largura máxima */
+            text-align: left; /* Alinha o texto à esquerda */
         }
 
         .address h2 {
-            font-size: 1.8em;
-            margin-bottom: 10px;
-            color: #00bfff;
+            font-size: 1.8em; /* Tamanho da fonte do título */
+            margin-bottom: 10px; /* Margem inferior */
+            color: #00bfff; /* Cor azul clara para o título */
         }
 
         .address p {
-            font-size: 1.1em;
-            margin-bottom: 10px;
+            font-size: 1.1em; /* Tamanho da fonte do parágrafo */
+            margin-bottom: 10px; /* Margem inferior */
         }
 
         /* Rodapé */
         footer {
-            text-align: center;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            font-size: 0.9em;
+            text-align: center; /* Alinha o texto no centro */
+            padding: 20px; /* Preenchimento interno */
+            background: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente */
+            font-size: 0.9em; /* Tamanho da fonte */
         }
     </style>
 </head>
 <body>
     <header>
         <img src="Logo PNG.png" alt="Logo Ambrosio Motors" class="logo">
+        <!-- Imagem do logo da empresa com um texto alternativo para acessibilidade e uma classe para estilização -->
         <nav>
             <a href="inicio.html">Início</a>
+            <a href="sobre_nós.html">Sobre Nós</a>
             <a href="motos.html">Motos</a>
-            <a href="contato.html">Contato</a>
             <a href="localizacao.html">Localização</a>
+            <a href="contato.html">Contato</a>
         </nav>
+        <!-- Barra de navegação com links para outras páginas do site -->
     </header>
 
     <main>
+        <!-- Seção de localização -->
         <section class="localizacao-section">
             <h1>Nosso Endereço</h1>
+            <!-- Container para o mapa e informações de contato -->
             <div class="localizacao-container">
-                <!-- Mapa -->
+                <!-- Container do mapa -->
                 <div class="map-container">
                     <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093704!2d-47.8257883!3d-21.1992338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c9ac3f3c0d0c7f%3A0x8a9f98107b855601!2sR.%20Humait%C3%A1,%20410%20-%20Santa%20Cruz%20do%20Jose%20Jacques%2C%20Ribeir%C3%A3o%20Preto%20-%20SP%2C%2014020-680!5e0!3m2!1spt-BR!2sbr!4v1683930536841!5m2!1spt-BR!2sbr" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093704!2d-47.8257883!3d-21.1992338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c9ac3f3c0d0c7f%3A0x8a9f98107b855601!2sR.%20Humait%C3%A1,%20410%20-%20Santa%20Cruz%20do%20José%20Jacques%2C%20Ribeir%C3%A3o%20Preto%20-%20SP%2C%2014020-680!5e0!3m2!1spt-BR!2sbr!4v1683930536841!5m2!1spt-BR!2sbr" 
                         allowfullscreen="" 
                         loading="lazy">
                     </iframe>
                 </div>
-                <!-- Endereço -->
+                <!-- Informações de contato -->
                 <div class="address">
                     <h2>Ambrosio Motors</h2>
                     <p><strong>Endereço:</strong> R. Humaitá, 410 - Santa Cruz do José Jacques, Ribeirão Preto - SP, 14020-680</p>
@@ -150,6 +166,7 @@
         </section>
     </main>
 
+    <!-- Rodapé com links para redes sociais -->
     <footer style="text-align: center; padding: 20px; background: rgb(0, 0, 0); color: #fff; margin-top: 30px;">
         Redes sociais:
         <a href="https://wa.me/+5516997833611" 
@@ -159,13 +176,12 @@
         <a href="https://www.instagram.com/ambrosio_motors"
         style="color: #00bfff; text-decoration: none; margin: 0 10px;" 
         target="_blank" 
-        rel="noopener noreferrer">Instagram</a> 
-        
-    </p>
-</footer>
+        rel="noopener noreferrer">Instagram</a>
+    </footer>
 
     <footer>
         <p>&copy; 2024 Ambrosio Motors - Exclusividade em Duas Rodas</p>
+        <!-- Rodapé com mensagem de copyright -->
     </footer>
 </body>
 </html>

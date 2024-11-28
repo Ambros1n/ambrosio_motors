@@ -1,183 +1,204 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+<!-- Define o tipo de documento como HTML5 e especifica o idioma como português do Brasil -->
 <head>
     <meta charset="UTF-8">
+    <!-- Define a codificação de caracteres como UTF-8 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Configura a viewport para tornar o site responsivo em dispositivos móveis -->
     <title>Cadastro de Interesse - Ambrosio Motors</title>
+    <!-- Título da página que aparece na aba do navegador -->
+
     <style>
-        /* Fonte personalizada */
+        /* Importa uma fonte personalizada do Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap');
 
-        /* Reset básico */
+        /* Reset de estilos básicos para todos os elementos */
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            margin: 0; /* Remove a margem padrão */
+            padding: 0; /* Remove o preenchimento padrão */
+            box-sizing: border-box; /* Inclui as bordas e o preenchimento no cálculo da largura e altura */
         }
 
-        /* Corpo */
+        /* Estilização do corpo da página */
         body {
-            font-family: 'Roboto', sans-serif;
-            background: #1b1b1b url('background-motos.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: #fff;
-            line-height: 1.6;
+            font-family: 'Roboto', sans-serif; /* Fonte padrão para o corpo */
+            background: #1b1b1b url('background-motos.jpg') no-repeat center center fixed; /* Fundo com imagem */
+            background-size: cover; /* Faz a imagem de fundo cobrir toda a tela */
+            color: #fff; /* Cor do texto */
+            line-height: 1.6; /* Altura da linha para melhor legibilidade */
         }
 
-        /* Cabeçalho */
+        /* Estilização do cabeçalho */
         header {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            text-align: center;
+            background: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente */
+            padding: 20px; /* Preenchimento interno */
+            text-align: center; /* Alinha o conteúdo no centro */
         }
 
         header .logo {
-            max-width: 200px;
+            max-width: 200px; /* Largura máxima da imagem do logo */
         }
 
         nav {
-            margin-top: 10px;
+            margin-top: 10px; /* Margem superior */
         }
 
         nav a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2em;
-            margin: 0 15px;
-            transition: color 0.3s ease;
+            color: #fff; /* Cor do texto do link */
+            text-decoration: none; /* Remove o sublinhado */
+            font-size: 1.2em; /* Tamanho da fonte */
+            margin: 0 15px; /* Margem lateral entre os links */
+            transition: color 0.3s ease; /* Transição suave para mudança de cor */
         }
 
         nav a:hover {
-            color: #00bfff;
+            color: #00bfff; /* Cor ao passar o mouse */
         }
 
-        /* Formulário */
+        /* Estilização da seção do formulário */
         .form-section {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 40px;
-            border-radius: 10px;
-            margin: 50px auto;
-            max-width: 600px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente */
+            padding: 40px; /* Preenchimento interno */
+            border-radius: 10px; /* Bordas arredondadas */
+            margin: 50px auto; /* Margem centralizada */
+            max-width: 600px; /* Largura máxima */
+            text-align: center; /* Alinha o texto no centro */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Sombra */
         }
 
         .form-section h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #00bfff;
+            font-family: 'Playfair Display', serif; /* Fonte serifada para o título */
+            font-size: 2.5em; /* Tamanho da fonte do título */
+            margin-bottom: 20px; /* Margem inferior */
+            color: #00bfff; /* Cor azul clara para o título */
         }
 
         .form-section p {
-            margin-bottom: 30px;
+            margin-bottom: 30px; /* Margem inferior */
         }
 
+        /* Estilização dos elementos do formulário */
         form label {
-            display: block;
-            margin: 10px 0 5px;
-            text-align: left;
+            display: block; /* Faz os labels serem exibidos como blocos */
+            margin: 10px 0 5px; /* Margens para espaçamento */
+            text-align: left; /* Alinha o texto à esquerda */
         }
 
         form input, form select, form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1em;
+            width: 100%; /* Largura total do container */
+            padding: 10px; /* Preenchimento interno */
+            margin-bottom: 20px; /* Margem inferior */
+            border: 1px solid #ccc; /* Borda padrão */
+            border-radius: 5px; /* Bordas arredondadas */
+            font-size: 1em; /* Tamanho da fonte */
         }
 
         form input:invalid, form select:invalid, form textarea:invalid {
-            border-color: red;
+            border-color: red; /* Cor da borda quando o campo é inválido */
         }
 
         form button {
-            background: #00bfff;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.2em;
-            cursor: pointer;
-            transition: background 0.3s ease;
+            background: #00bfff; /* Cor de fundo do botão */
+            color: #fff; /* Cor do texto do botão */
+            padding: 10px 20px; /* Preenchimento interno */
+            border: none; /* Remove a borda */
+            border-radius: 5px; /* Bordas arredondadas */
+            font-size: 1.2em; /* Tamanho da fonte */
+            cursor: pointer; /* Cursor de ponteiro para indicar que é clicável */
+            transition: background 0.3s ease; /* Transição suave para mudança de cor */
         }
 
         form button:hover {
-            background: #007acc;
+            background: #007acc; /* Cor do botão ao passar o mouse */
         }
 
-        /* Rodapé */
+        /* Estilização do rodapé */
         footer {
-            text-align: center;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            font-size: 0.9em;
+            text-align: center; /* Alinha o texto no centro */
+            padding: 20px; /* Preenchimento interno */
+            background: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente */
+            font-size: 0.9em; /* Tamanho da fonte */
         }
 
-        /* Mensagem de Erro */
+        /* Estilização da mensagem de erro */
         .error {
-            color: red;
-            font-size: 0.9em;
-            text-align: left;
-            margin-bottom: 10px;
+            color: red; /* Cor do texto de erro */
+            font-size: 0.9em; /* Tamanho da fonte */
+            text-align: left; /* Alinha o texto à esquerda */
+            margin-bottom: 10px; /* Margem inferior */
         }
     </style>
 </head>
 <body>
     <header>
         <img src="Logo PNG.png" alt="Logo Ambrosio Motors" class="logo">
+        <!-- Logo da empresa -->
         <nav>
             <a href="inicio.html">Início</a>
+            <a href="sobre_nós.html">Sobre Nós</a>
             <a href="motos.html">Motos</a>
-            <a href="estoque.html">Estoque</a>
+            <a href="localizacao.html">Localização</a>
             <a href="contato.html">Contato</a>
-            <a href="Localizção.html">Localização</a>
         </nav>
     </header>
 
     <main>
+        <!-- Seção do formulário de cadastro de interesse -->
         <section class="form-section">
             <h1>Cadastre Seu Interesse</h1>
             <p>Preencha o formulário abaixo e nossa equipe entrará em contato com você para personalizar sua experiência com nossas motocicletas premium.</p>
             
             <form id="form-cadastro" action="contato.php" method="POST" novalidate>
-                <!-- Nome Completo -->
+                <!-- Campo de nome -->
                 <label for="nome">Nome Completo:</label>
                 <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
                 <div id="erro-nome" class="error"></div>
                 
-                <!-- E-mail -->
+                <!-- Campo de e-mail -->
                 <label for="email">E-mail:</label>
                 <input type="email" id="email" name="email" placeholder="Seu melhor e-mail" required>
                 <div id="erro-email" class="error"></div>
                 
-                <!-- Telefone -->
+                <!-- Campo de telefone -->
                 <label for="telefone">Telefone:</label>
                 <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" required>
                 <div id="erro-telefone" class="error"></div>
                 
-                <!-- Modelo de Interesse -->
+                <!-- Campo de seleção do modelo -->
                 <label for="modelo">Modelo de Interesse:</label>
                 <select id="modelo" name="modelo" required>
                     <option value="">Selecione uma Moto de Interesse</option>
-                        <option value="Honda Fan 160">Honda Fan 160 2021</option>
-                        <option value="Honda PCX DLX ABS">Honda PCX DLX ABS 2023</option>
-                        <option value="Yamaha NMAX 160 ABS">Yamaha NMAX 160 ABS 2020</option>
-                        <option value="Honda CB500F">Honda CB500F 2014</option>
-                        <option value="Honda CB300R Capitão América">Honda CB300R Capitão América 2015</option>
+                    <option value="Honda Fan 160">Honda Fan 160 2021</option>
+                    <option value="Honda PCX DLX ABS">Honda PCX DLX ABS 2023</option>
+                    <option value="Yamaha NMAX 160 ABS">Yamaha NMAX 160 ABS 2020</option>
+                    <option value="Honda CB500F">Honda CB500F 2014</option>
+                    <option value="Honda CB300R Capitão América">Honda CB300R Capitão América 2015</option>
                 </select>
                 <div id="erro-modelo" class="error"></div>
                 
-                <!-- Mensagem -->
+                <!-- Campo de mensagem -->
                 <label for="mensagem">Mensagem:</label>
                 <textarea id="mensagem" name="mensagem" rows="5" placeholder="Descreva seu interesse ou dúvidas"></textarea>
                 
-                <!-- Botão de Enviar -->
+                <!-- Botão de envio -->
                 <button type="submit">Enviar</button>
             </form>
         </section>
     </main>
+
+    <!-- Rodapé com links para redes sociais -->
+    <footer style="text-align: center; padding: 20px; background: rgb(0, 0, 0); color: #fff; margin-top: 30px;">
+        Redes sociais:
+        <a href="https://wa.me/+5516997833611" 
+        style="color: #00bfff; text-decoration: none; margin: 0 10px;" 
+        target="_blank" 
+        rel="noopener noreferrer">WhatsApp</a> |
+        <a href="https://www.instagram.com/ambrosio_motors"
+        style="color: #00bfff; text-decoration: none; margin: 0 10px;" 
+        target="_blank" 
+        rel="noopener noreferrer">Instagram</a> 
+    </footer>
 
     <footer>
         <p>&copy; 2024 Ambrosio Motors - Exclusividade em Duas Rodas</p>
@@ -190,7 +211,7 @@
         form.addEventListener('submit', function (event) {
             let isValid = true;
 
-            // Nome
+            // Validação do campo de nome
             const nome = document.getElementById('nome');
             const erroNome = document.getElementById('erro-nome');
             if (nome.value.trim() === '') {
@@ -200,7 +221,7 @@
                 erroNome.textContent = '';
             }
 
-            // E-mail
+            // Validação do campo de e-mail
             const email = document.getElementById('email');
             const erroEmail = document.getElementById('erro-email');
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -211,7 +232,7 @@
                 erroEmail.textContent = '';
             }
 
-            // Telefone
+            // Validação do campo de telefone
             const telefone = document.getElementById('telefone');
             const erroTelefone = document.getElementById('erro-telefone');
             const telefoneRegex = /^\(\d{2}\) \d{4,5}-\d{4}$/;
@@ -222,7 +243,7 @@
                 erroTelefone.textContent = '';
             }
 
-            // Modelo de Interesse
+            // Validação do campo de modelo
             const modelo = document.getElementById('modelo');
             const erroModelo = document.getElementById('erro-modelo');
             if (modelo.value === '') {
@@ -232,7 +253,7 @@
                 erroModelo.textContent = '';
             }
 
-            // Bloqueia o envio do formulário se houver erros
+            // Evita o envio do formulário se houver erros
             if (!isValid) {
                 event.preventDefault();
             }

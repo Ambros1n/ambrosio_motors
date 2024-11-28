@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambrosio Motors - Sobre Nós</title>
+    <style>
+        /* Importando fontes personalizadas do Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap');
+
+        /* Resetando as margens e padding para evitar inconsistências entre navegadores */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Definindo estilo do corpo da página */
+        body {
+            font-family: 'Roboto', sans-serif;  /* Fonte principal para o texto */
+            background: #1b1b1b;  /* Cor de fundo escura */
+            color: #fff;  /* Texto em branco para contraste */
+            line-height: 1.6;  /* Espaçamento entre as linhas */
+        }
+
+        /* Estilizando o cabeçalho da página */
+        header {
+            background: rgba(0, 0, 0, 0.8);  /* Fundo escuro com transparência */
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Definindo o tamanho máximo da logo */
+        header .logo {
+            max-width: 200px;
+        }
+
+        /* Estilizando a barra de navegação */
+        nav {
+            margin-top: 10px;
+        }
+
+        /* Estilo dos links de navegação */
+        nav a {
+            color: #fff;  /* Cor dos links em branco */
+            text-decoration: none;  /* Removendo o sublinhado */
+            font-size: 1.2em;  /* Tamanho maior para os links */
+            margin: 0 15px;  /* Espaçamento entre os links */
+            transition: color 0.3s ease;  /* Transição suave para a cor */
+        }
+
+        /* Efeito de hover para os links */
+        nav a:hover {
+            color: #00bfff;  /* Mudando a cor para azul ao passar o mouse */
+        }
+
+        /* Estilo da seção de introdução */
+        .intro-section {
+            padding: 80px 20px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.8);  /* Fundo escuro para destacar o conteúdo */
+            margin-bottom: 50px;  /* Espaçamento abaixo da seção */
+        }
+
+        /* Estilizando o título da introdução */
+        .intro-section h1 {
+            font-family: 'Playfair Display', serif;  /* Fonte serifada para o título */
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #00bfff;  /* Cor azul clara para destacar o título */
+        }
+
+        /* Estilizando o texto da introdução */
+        .intro-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;  /* Espaçamento entre o parágrafo e outros elementos */
+        }
+
+        /* Estilo do botão na seção de introdução */
+        .intro-section button {
+            background: #00bfff;  /* Cor de fundo do botão */
+            color: #fff;  /* Cor do texto do botão */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;  /* Bordas arredondadas */
+            font-size: 1.2em;
+            cursor: pointer;  /* Mudando o cursor para indicar interatividade */
+            transition: background 0.3s ease;  /* Transição suave na cor do fundo */
+        }
+
+        /* Efeito ao passar o mouse sobre o botão */
+        .intro-section button:hover {
+            background: #007acc;  /* Cor mais escura quando o mouse passa sobre o botão */
+        }
+
+        /* Estilo da seção de valores da empresa */
+        .values-section {
+            padding: 60px 20px;
+            background: #121212;  /* Fundo escuro mais intenso */
+            text-align: center;
+        }
+
+        /* Estilizando o título da seção de valores */
+        .values-section h1 {
+            font-family: 'Playfair Display', serif;  /* Fonte para o título */
+            font-size: 2.5em;
+            color: #00bfff;  /* Cor azul para destacar o título */
+            margin-bottom: 20px;
+        }
+
+        /* Estilo do texto na seção de valores */
+        .values-section p {
+            font-size: 1.2em;
+            line-height: 1.8;  /* Aumentando o espaçamento entre as linhas para maior legibilidade */
+            color: #ccc;  /* Cor do texto mais suave */
+        }
+
+        /* Estilo da seção sobre a história da empresa */
+        .history-section {
+            padding: 60px 20px;
+            background: #1b1b1b;  /* Cor de fundo semelhante ao corpo da página */
+            text-align: center;
+        }
+
+        /* Estilizando o título da seção "Nossa História" */
+        .history-section h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: #00bfff;  /* Cor azul no título */
+            margin-bottom: 20px;
+        }
+
+        /* Estilo do texto da seção de história */
+        .history-section p {
+            max-width: 800px;  /* Limitando a largura do parágrafo para facilitar a leitura */
+            margin: 0 auto;  /* Centralizando o parágrafo */
+            font-size: 1.2em;
+            color: #ccc;
+            line-height: 1.8;  /* Melhorando a legibilidade com mais espaçamento entre as linhas */
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);  /* Fundo com transparência para destacar o texto */
+            border-radius: 10px;  /* Bordas arredondadas */
+        }
+
+        /* Estilo do rodapé */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);  /* Fundo escuro com transparência */
+            font-size: 0.9em;  /* Tamanho de fonte reduzido para o rodapé */
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho com a logo e o menu de navegação -->
+    <header>
+        <img src="Logo PNG.png" alt="Logo Ambrosio Motors" class="logo">
+        <nav>
+            <a href="inicio.html">Início</a>
+            <a href="sobre_nós.html">Sobre Nós</a>
+            <a href="motos.html">Motos</a>
+            <a href="localizacao.html">Localização</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- Seção de introdução com uma mensagem de boas-vindas -->
+        <section class="intro-section">
+            <h1>Bem-vindo à Ambrosio Motors</h1>
+            <table style="margin: 0 auto; width: 80%; border-collapse: collapse;">
+                <tr>
+                    <td style="text-align: left; padding: 15px; vertical-align: top; font-size: 1.1em; line-height: 1.6;">
+                        <p>
+                            <span style="color: #00bfff; font-weight: bold;">Onde os sonhos aceleram</span> e as conquistas ganham força!<br>
+                            Na Ambrósio Motors, nossa prioridade é transformar sua<br> 
+                            <span style="color: #00bfff; font-weight: bold;">experiência de compra</span> em algo inesquecível.<br>
+                            Sabemos como pode ser frustrante<br>
+                            adquirir uma moto que não atende às expectativas.<br>
+                            Por isso, estamos aqui para mudar essa realidade.
+                        </p>
+                    </td>
+                    <td style="text-align: left; padding: 15px; vertical-align: top; font-size: 1.1em; line-height: 1.6;">
+                        <p>
+                            Com a gente, você não compra apenas uma moto; <span style="color: #00bfff; font-weight: bold;">você realiza um sonho</span>.<br>
+                            Oferecemos qualidade, confiança e um compromisso genuíno com sua felicidade.<br>
+                            Afinal, nossa missão é ajudá-lo a conquistar o que antes parecia impossível,<br>
+                            entregando muito mais do que produtos: <span style="color: #00bfff; font-weight: bold;">entregamos paixão</span>, <br>liberdade e uma nova história para você escrever.
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Seção de valores da empresa -->
+        <section class="values-section">
+            <h1>Nossos Valores</h1>
+            <p>
+                Na Ambrósio Motors, acreditamos que <span style="color: #00bfff; font-weight: bold;">qualidade, honestidade e dedicação</span> são os pilares de uma relação de confiança com nossos clientes.<br><br>
+                Você merece uma moto que traga <span style="color: #00bfff; font-weight: bold;">alegria</span>, não dores de cabeça.<br><br>
+                Nosso compromisso é garantir que cada moto entregue tenha sido <span style="color: #00bfff; font-weight: bold;">cuidadosamente selecionada e preparada</span> para oferecer segurança, desempenho e durabilidade.<br><br>
+                Queremos que cada <span style="color: #00bfff; font-weight: bold;">conquista</span> sua seja motivo de <span style="color: #00bfff; font-weight: bold;">celebração</span>, não de preocupação.
+            </p>
+        </section>
+
+        <!-- Seção contando a história da empresa -->
+        <section class="history-section">
+            <h1>Nossa História</h1>
+            <p>
+                A jornada da Ambrósio Motors começou com um <span style="color: #00bfff; font-weight: bold;">sonho</span> e muita <span style="color: #00bfff; font-weight: bold;">determinação</span>.<br>
+                Desde jovem, eu acreditava que poderia construir algo que <span style="color: #00bfff; font-weight: bold;">transformasse vidas</span>.<br>
+                Meu primeiro passo foi trabalhar em uma concessionária, onde aprendi tudo sobre motos, clientes e o mercado.<br><br>
+                <span style="color: #00bfff; font-weight: bold;">Em 2018</span>, consegui realizar o sonho de vender minha <span style="color: #00bfff; font-weight: bold;">primeira moto</span>. Foi um marco, mas eu sabia que podia ir além.<br>
+                Com esforço, dedicação e apoio da minha esposa, demos vida à Ambrósio Motors.<br>
+                Hoje, somos uma <span style="color: #00bfff; font-weight: bold;">empresa sólida</span>, pronta para ajudar você a alcançar seus objetivos.<br>
+                Cada moto que vendemos carrega nossa <span style="color: #00bfff; font-weight: bold;">paixão e compromisso</span>, porque acreditamos que todos merecem acelerar rumo às suas <span style="color: #00bfff; font-weight: bold;">conquistas</span>.
+            </p>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 Ambrosio Motors. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
